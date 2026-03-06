@@ -12,11 +12,13 @@ const Hero = () => {
           Data Scientist / AI Engineer | Production RAG & LLM Systems | Data Science, AI, ML | Azure, Python
         </p>
         <p className="mt-5">
-          Data Scientist / AI Engineer with 7+ years in ML/data and 2+ years specializing in production LLM/GenAI systems, including RAG, intelligent search, and LLM-powered applications in Azure. {' '}
+          AI Engineer with 7+ years of experience and deep expertise in Generative AI, Retrieval-Augmented Generation (RAG), and multi-agent LLM systems.  {' '}
           <br className="hidden lg:block" />
-           I own LLM systems end-to-end: ingestion, embeddings, retrieval, prompt orchestration, evaluation, deployment, and monitoring - focused on reliability, performance, and cost in real products. {' '}
+           Proven track record designing scalable AI platforms for semantic search, document QA, and agentic workflows using Azure OpenAI, vector databases, LangChain, LlamaIndex, and LangGraph.  {' '}
+           <br className="hidden lg:block" />
+          Experienced in LLM evaluation, grounding, guardrails, and low-latency production deployments using Python, FastAPI, and cloud MLOps.  {' '}
           <br className="hidden lg:block" />
-          Core: LLMs, RAG, vector search, LLM evaluation, Python, Azure OpenAI, Spark, MLOps, etc.
+         Core: LLMs, RAG, Vector Search, Agentic Systems, LLM Evaluation, Python, Azure OpenAI, Spark, LangChain/LangGraph, MLOps.
         </p>
 
         {/* Availability */}
