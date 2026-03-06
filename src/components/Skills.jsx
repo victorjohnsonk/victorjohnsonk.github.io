@@ -46,6 +46,7 @@ const Skills = () => {
       'Scikit-learn',
       'Artificial Intelligence (AI)',
       'Predictive Maintenance',
+      'PyTorch'
     ],
   },
   {
