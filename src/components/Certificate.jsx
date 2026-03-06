@@ -31,7 +31,7 @@ const certificates = [
       'https://www.linkedin.com/learning/certificates/dbdf3a78e651974d0a92efcd9cadd9457b6adaef3f4034204e5f9657228f0e7a',
   },
   {
-    certification: 'AI Security & Governance CertificationI',
+    certification: 'AI Security & Governance Certification',
     issuedBy: 'Securiti',
     validFrom: 'Jan 2026',
     validTo: 'Jan 2028',
