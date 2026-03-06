@@ -12,24 +12,15 @@ const experiences = [
     end: 'Present',
     location: 'England, United Kingdom · Hybrid',
     description: `
-GenAI &  LLM Systems (Primary):
-Led end-to-end design and production deployment of LLM, RAG, and Agentic AI systems, covering ingestion, embedding pipelines, retrieval, orchestration, simulation, evaluation, deployment, and monitoring - reducing manual effort by ~50%
-Built LLM-powered search, chatbots, and ranking workflows used in live products.
-Designed evaluation frameworks (precision/recall, F1, BLEU/ROUGE, relevance, faithfulness) to reduce hallucinations and improve grounding.
-Implemented prompt engineering, guardrails, output validation, and LoRA-based adaptation for domain-specific reliability and performance.
-Ran structured A/B testing across models, embeddings, retrievers, and prompts to optimize quality, latency, and cost.
-Contributed to DevOps and CI/CD workflows for deploying and monitoring GenAI / LLM solutions in production, supporting versioning, testing, and release automation.
-
-Machine Learning & Applied Analytics (Secondary):
-Developed forecasting and statistical models for revenue, traffic, and user activity using Python and ML frameworks.
-Implemented Monte Carlo simulations for scenario planning and risk modelling, improving forecast robustness and reducing manual sensitivity analysis time by ~30%.
-Built automated analytics pipelines integrating GA4, GSC, and internal datasets.
-
-Data Engineering, Platform & DevOps:
-Designed scalable ETL and data pipelines (Spark, Azure Synapse) supporting ML and near real-time analytics.
-Optimized complex SQL/T-SQL workloads and built KPI dashboards (Power BI, Streamlit).
-Strengthened data governance and validation, reducing reporting turnaround time by ~40%.
-Contributed to DevOps and CI/CD workflows for deploying and monitoring GenAI / LLM solutions in production, supporting versioning, testing, and release automation.`,
+Architected and deployed end-to-end RAG systems using Azure OpenAI (LLMs & embeddings), Azure Vector Search, Azure SQL, LlamaIndex, LangChain, FastAPI, reducing manual research effort by ~50% and improving retrieval relevance by 25–35% while optimising latency to production-acceptable ranges.
+Delivered AI-driven semantic search and dynamic content ranking across international financial platforms serving 100K+ monthly users, enabling scalable, context-aware LLM-powered content experiences.
+Built agentic LLM workflows using LangGraph with tool orchestration, guardrails, and Monte Carlo simulations for probabilistic financial modelling and scenario analysis, contributing to ~20% revenue uplift.
+Applied statistical modelling and quantitative financial analysis techniques to support AI-driven decision systems and financial insight generation.
+Implemented automated LLM evaluation, regression testing, and drift monitoring (data, embeddings, retrieval) to detect hallucinations and silent quality degradation; reduced invalid responses by ~20–25%.
+Enhanced RAG retrieval by combining vector similarity with entity-aware ranking and structured relationship signals to improve contextual grounding and complex query handling.
+Developed scalable ingestion and preprocessing pipelines (chunking, tokenisation, embeddings, Mistral OCR) processing tens of thousands of structured and unstructured documents per run.
+Built and maintained Spark/Azure Synapse pipelines supporting ML/AI workloads and high-volume data processing, ensuring reliable training and inference pipelines.
+`,
   },
   {
     title: 'Data Scientist (ML Focus)',
@@ -39,22 +30,12 @@ Contributed to DevOps and CI/CD workflows for deploying and monitoring GenAI / L
     end: 'Dec 2020',
     location: 'Bengaluru, India · On-site',
     description: `
-Applied Machine Learning & Predictive Systems:
-Developed production machine learning models for predictive maintenance, including Remaining Useful Life (RUL) estimation for critical train components
-Built time-series and survival analysis models to predict failures, degradation, and maintenance needs across multiple subsystems
-Analyzed high-volume telemetry data to identify failure patterns, sensor drift, and anomalous behavior in operational environments
-Designed component-level health indicators and engineered features that improved prediction accuracy and model stability
-Applied Monte Carlo simulations to model failure uncertainty and maintenance scheduling scenarios, improving preventive maintenance planning and reducing unplanned downtime risk while accelerating decision analysis cycles.
-
-Data Engineering & Model Integration
-Implemented robust data validation, preprocessing, and feature pipelines to ensure reliability of sensor and operational data
-Integrated predictive models into operational reporting and decision-support systems, enabling faster and more informed maintenance decisions
-Supported condition-based maintenance strategies that improved fleet availability and reduced unplanned downtime
-
-Analytics Platforms & Visualization
-Built dashboards in Shiny, Qlik Sense, and Tableau to visualize asset health, predictions, and maintenance KPIs
-Contributed to the setup of the operations center by delivering KPI-driven visualizations and automated model outputs
-Applied IEC 62541 standards to improve data acquisition consistency and interoperability across systems`,
+Built and productionised machine learning models for predictive maintenance, including Remaining Useful Life (RUL), degradation modelling, time-series forecasting, and survival analysis for critical train components.
+Analysed millions of telemetry events per day to detect anomalies, sensor drift, and early failure signals, delivering ~5–10% maintenance cost savings.
+Extended component usable life by ~10–15% through improved failure prediction and optimised maintenance scheduling strategies.
+Applied Monte Carlo simulations to model failure uncertainty and maintenance scenarios, supporting data-driven preventive maintenance planning.
+Developed scalable data preprocessing and feature engineering pipelines and integrated ML model outputs into operational decision-support systems used by engineering and maintenance teams.
+Collaborated with cross-functional engineering and operations teams to deploy and monitor ML models in production environments.`
   },
   {
     title: 'Junior Data Scientist',
@@ -64,10 +45,9 @@ Applied IEC 62541 standards to improve data acquisition consistency and interope
     end: 'Dec 2018',
     location: 'Bengaluru, India · On-site',
     description: `
-Developed an Elasticsearch-based search application leveraging BM25 relevance scoring, inverted indexes, and NLP techniques for information retrieval.
-Developed automated ETL pipelines using Apache Airflow
-Contributed to Spark and Kafka streaming workflows for real-time telemetry data processing
-Built RPA workflows to automate SAP-based maintenance data handling`,
+Built a search system using Elasticsearch and Python (Flask), improving document retrieval efficiency by ~20%.
+Developed automated ETL pipelines using Apache Airflow and contributed to Spark and Kafka streaming workflows for high-frequency telemetry data.
+Created RPA workflows to automate SAP-based data processing, reducing manual effort and improving throughput.`,
   },
   {
     title: 'Data Science Intern',
