@@ -9,7 +9,7 @@ const Hero = () => {
         <span>Hey there, I am</span>
         <h1 className="text-2xl font-medium lg:text-4xl">Victor Johnson</h1>
         <p className="font-light lg:text-xl">
-          Data Scientist / AI Engineer | Production RAG & LLM Systems | Data Science, AI, ML | Azure, Python
+          Data Scientist | AI Engineer | Production RAG & LLM Systems | Agentic AI | Data Science, AI, ML | Azure, Python
         </p>
         <p className="mt-5">
           AI Engineer with 7+ years of experience and deep expertise in Generative AI, Retrieval-Augmented Generation (RAG), and multi-agent LLM systems.  {' '}
