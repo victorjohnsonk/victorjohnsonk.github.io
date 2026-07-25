@@ -14,12 +14,14 @@ export const metadata = {
   title:
     'Victor Johnson | Data Scientist / AI Engineer | Production RAG & GenAI Systems',
   description:
-    'Data Scientist / AI Engineer with 7+ years in ML/data and 2+ years specializing in production LLM/GenAI systems, including RAG, intelligent search, and LLM-powered applications in Azure. I own LLM systems end-to-end: ingestion, embeddings, retrieval, prompt orchestration, evaluation, deployment, and monitoring - focused on reliability, performance, and cost in real products. Core: LLMs, RAG, vector search, LLM evaluation, Python, Azure OpenAI, Spark, MLOps. ',
+    'Data Scientist / AI Engineer with 7+ years in ML/data and 2+ years specializing in production LLM/GenAI systems, including RAG, intelligent search, and LLM-powered applications in Azure. I own LLM systems end-to-end: ingestion, embeddings, retrieval, prompt orchestration, evaluation, deployment, and monitoring - focused on reliability, performance, and cost in real products. Core: LLMs, RAG, vector search, LLM evaluation, Python, Azure, Databricks, Spark, MLOps. ',
   keywords: [
     'Data Science',
     'Data Scientist',
     'AI',
     'AI Engineer',
+    'Generative AI Engineer',
+    'GenAI Engineer',
     'Artificial Intelligence',
     'Artificial Intelligence Engineer',
     'LLM Engineer',
@@ -32,6 +34,7 @@ export const metadata = {
     'Vector Databases',
     'LLMOps',
     'Azure OpenAI',
+    'Databricks',
     'Machine Learning',
     'Natural Language Processing',
     'MLOps',
@@ -82,7 +85,7 @@ export default function RootLayout({ children }) {
     image: 'https://victorjohnson.online/vj-photo.png',
     jobTitle: 'Data Scientist / AI Engineer',
     description:
-      'Data Scientist / AI Engineer specialising in production RAG, LLM systems, semantic search, and Generative AI on Microsoft Azure.',
+      'Data Scientist | AI Engineer specialising in production RAG, LLM systems, AI Agents, Semantic search, Databricks and Generative AI on Microsoft Azure.',
     sameAs: [
       'https://www.linkedin.com/in/victorjohnsonk',
       'https://github.com/victorjohnsonk',
@@ -102,6 +105,7 @@ export default function RootLayout({ children }) {
       'MLOps',
       'Azure OpenAI',
       'Data Science'
+      'Databricks'
     ],
     address: {
       '@type': 'PostalAddress',
@@ -115,7 +119,7 @@ export default function RootLayout({ children }) {
     name: 'Victor Johnson',
     url: 'https://victorjohnson.online',
     description:
-      'Personal website of Victor Johnson, Data Scientist / AI Engineer specialising in production RAG and GenAI systems.',
+      'Personal website of Victor Johnson, Data Scientist | AI Engineer specialising in production RAG and GenAI systems.',
   };
 
   return (
