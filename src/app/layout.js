@@ -104,7 +104,7 @@ export default function RootLayout({ children }) {
       'Machine Learning',
       'MLOps',
       'Azure OpenAI',
-      'Data Science'
+      'Data Science',
       'Databricks'
     ],
     address: {
