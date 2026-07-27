@@ -3,111 +3,77 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Skills = () => {
-  const skills = [
+const skills = [
   {
-  category: 'RAG & Knowledge Systems',
-  items: [
-    'Retrieval-Augmented Generation (RAG)',
-    'Semantic Search',
-    'Embeddings & Vector Search',
-    'Vector Databases',
-    'Hybrid Retrieval',
-    'Grounding & Guardrails',
-    'LLM Evaluation & Monitoring',
-    'RAGAS',
-    'DeepEval',
-    'LlamaIndex',
-  ],
-},
-{
-  category: 'Agentic AI & LLM Systems',
-  items: [
-    'Large Language Models (LLMs)',
-    'Generative AI',
-    'Prompt Engineering',
-    'Agentic Workflows',
-    'Multi-Agent Systems',
-    'Tool Use & Function Calling',
-    'LangChain',
-    'LangGraph',
-    'Chatbot Development',
-    'LLMOps',
-    'Azure OpenAI',
-    'Azure AI Foundry',
-  ],
-},
+    category: 'Generative AI & Agentic AI',
+    items: [
+      'Generative AI',
+      'Large Language Models (LLMs)',
+      'Agentic AI',
+      'AI Agents',
+      'LangChain',
+      'LangGraph',
+      'Azure OpenAI',
+      'Prompt Engineering',
+    ],
+  },
   {
-    category: 'Machine Learning & NLP',
+    category: 'RAG & Knowledge Systems',
+    items: [
+      'Retrieval-Augmented Generation (RAG)',
+      'LlamaIndex',
+      'Semantic Search',
+      'Embeddings',
+      'Vector Search',
+      'Hybrid Search',
+      'LLM Evaluation (RAGAS, DeepEval)',
+      'Grounding & Guardrails',
+    ],
+  },
+  {
+    category: 'Machine Learning & AI',
     items: [
       'Machine Learning',
-      'Applied Machine Learning',
       'Natural Language Processing (NLP)',
       'Scikit-learn',
-      'Artificial Intelligence (AI)',
+      'PyTorch',
       'Predictive Maintenance',
-      'PyTorch'
+      'Time Series Forecasting',
     ],
   },
   {
-    category: 'Data Science & Analytics',
+    category: 'Data Engineering & Cloud',
     items: [
-      'Data Science',
+      'Azure Databricks',
+      'Apache Spark',
+      'Azure AI Search',
+      'Azure Synapse Analytics',
+      'Azure SQL',
+      'Apache Airflow',
+      'Apache Kafka',
+      'Microsoft Azure',
+    ],
+  },
+  {
+    category: 'Programming & APIs',
+    items: [
       'Python',
       'SQL',
-      'Transact-SQL (T-SQL)',
-      'Statistical Modeling',
-      'Data Visualization',
-      'Financial Modeling',
-    ],
-  },
-  {
-    category: 'Data Engineering & Big Data',
-    items: [
-      'Apache Spark',
-      'Azure Databricks',
-      'Apache Kafka',
-      'Kafka Streams',
-      'Apache Airflow',
-      'Azure Data Factory',
-      'Elasticsearch',
-      'Azure SQL',
-    ],
-  },
-  {
-    category: 'Knowledge Graphs & Search',
-    items: [
-      'Knowledge Graphs',
-      'Knowledge Graph Data Engineering',
-      'Semantic Search & Information Retrieval',
-    ],
-  },
-  {
-    category: 'MLOps & Production AI',
-    items: [
-      'MLOps',
-      'MLflow',
-      'Model Monitoring',
-      'Model Drift & Bias Detection',
-      'Docker',
-    ],
-  },
-  {
-    category: 'Cloud & Platforms',
-    items: [
-      'Microsoft Azure',
-      'Azure Machine Learning',
-      'Oracle Cloud Infrastructure (AI Foundations)',
-    ],
-  },
-  {
-    category: 'Software & APIs',
-    items: [
       'FastAPI',
       'REST APIs',
-      'Software Development',
+      'Docker',
       'Git',
-      'GitHub',
+    ],
+  },
+  {
+    category: 'Search & MLOps',
+    items: [
+      'Elasticsearch',
+      'MLflow',
+      'Model Monitoring',
+      'Vector Databases',
+      'Information Retrieval',
+      'CI/CD',
     ],
   },
 ];
