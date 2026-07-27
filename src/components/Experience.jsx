@@ -26,7 +26,7 @@ Developed machine learning models for financial forecasting, scenario planning, 
 `,
   },
   {
-    title: 'Data Scientist',
+    title: 'Data Scientist - Part-time',
     company: 'SYMEUS LTD',
     industry: 'Finance',
     start: 'Feb 2021',
