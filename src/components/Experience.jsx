@@ -5,37 +5,57 @@ import { motion } from 'framer-motion';
 
 const experiences = [
   {
-    title: 'Data Scientist (AI/LLM Focus)',
+    title: 'Data Scientist',
     company: 'SYMEUS LTD',
     industry: 'Finance',
-    start: 'Feb 2021',
+    start: 'Jan 2022',
     end: 'Present',
     location: 'England, United Kingdom · Hybrid',
     description: `
-Architected and deployed end-to-end RAG systems using Azure OpenAI (LLMs & embeddings), Azure Vector Search, Azure SQL, LlamaIndex, LangChain, FastAPI, reducing manual research effort by ~50% and improving retrieval relevance by 25–35% while optimising latency to production-acceptable ranges.
-Delivered AI-driven semantic search and dynamic content ranking across international financial platforms serving 100K+ monthly users, enabling scalable, context-aware LLM-powered content experiences.
-Built agentic LLM workflows using LangGraph with tool orchestration, guardrails, and Monte Carlo simulations for probabilistic financial modelling and scenario analysis, contributing to ~20% revenue uplift.
-Applied statistical modelling and quantitative financial analysis techniques to support AI-driven decision systems and financial insight generation.
-Implemented automated LLM evaluation, regression testing, and drift monitoring (data, embeddings, retrieval) to detect hallucinations and silent quality degradation; reduced invalid responses by ~20–25%.
-Enhanced RAG retrieval by combining vector similarity with entity-aware ranking and structured relationship signals to improve contextual grounding and complex query handling.
-Developed scalable ingestion and preprocessing pipelines (chunking, tokenisation, embeddings, Mistral OCR) processing tens of thousands of structured and unstructured documents per run.
-Built and maintained Spark/Azure Synapse pipelines supporting ML/AI workloads and high-volume data processing, ensuring reliable training and inference pipelines.
+Architected and deployed enterprise Retrieval-Augmented Generation (RAG) solutions using Natural Language Processing (NLP), Azure OpenAI, Azure AI Search, LangChain, LangGraph, LlamaIndex, FastAPI, Azure SQL, and Databricks, reducing manual research effort by ~50% while improving retrieval relevance by 25–35%.
+  
+Designed and implemented production Agentic AI workflows using LangGraph and Azure OpenAI, orchestrating task-specific AI agents for document analysis, information retrieval, reasoning, and workflow execution to automate repetitive business processes.
+  
+Designed semantic retrieval pipelines using vector search, embeddings, and hybrid retrieval to improve contextual relevance and grounding for enterprise GenAI applications.
+  
+Implemented automated LLM evaluation frameworks covering retrieval quality, hallucination detection, regression testing, and response validation using Ragas and DeepEval.
+  
+Built enterprise knowledge ingestion pipelines using OCR, intelligent chunking, embedding generation, and vector indexing for large-scale structured and unstructured document repositories.
+
+Developed machine learning models for financial forecasting, scenario planning, predictive analytics, and business decision support, leveraging statistical modelling and data-driven insights to improve forecasting accuracy and strategic planning.
 `,
   },
   {
-    title: 'Data Scientist (ML Focus)',
+    title: 'Data Scientist',
+    company: 'SYMEUS LTD',
+    industry: 'Finance',
+    start: 'Feb 2021',
+    end: 'Dec 2021',
+    location: 'England, United Kingdom · Hybrid',
+    description: `
+Developed Databricks, Azure Synapse Analytics, and Apache Spark pipelines supporting production AI workloads and high-volume data processing.
+
+Optimized complex SQL/T-SQL workloads and built KPI dashboards (Power BI, Streamlit).`,
+  },
+  {
+    title: 'Data Scientist',
     company: 'Alstom',
     industry: 'Railways',
     start: 'Dec 2018',
     end: 'Dec 2020',
     location: 'Bengaluru, India · On-site',
     description: `
-Built and productionised machine learning models for predictive maintenance, including Remaining Useful Life (RUL), degradation modelling, time-series forecasting, and survival analysis for critical train components.
-Analysed millions of telemetry events per day to detect anomalies, sensor drift, and early failure signals, delivering ~5–10% maintenance cost savings.
-Extended component usable life by ~10–15% through improved failure prediction and optimised maintenance scheduling strategies.
-Applied Monte Carlo simulations to model failure uncertainty and maintenance scenarios, supporting data-driven preventive maintenance planning.
-Developed scalable data preprocessing and feature engineering pipelines and integrated ML model outputs into operational decision-support systems used by engineering and maintenance teams.
-Collaborated with cross-functional engineering and operations teams to deploy and monitor ML models in production environments.`
+Built and productionised machine learning models for predictive maintenance, including Remaining Useful Life (RUL), degradation modelling, time-series forecasting, and survival analysis for critical train components, reducing parts wastage by ~15%.
+  
+Analysed millions of telemetry events daily to detect anomalies, sensor drift, and early failure signals, delivering ~5–10% maintenance cost savings through earlier fault detection.
+  
+Extended component service life by ~10–15% by improving failure prediction accuracy and optimising preventive maintenance scheduling strategies.
+  
+Applied Monte Carlo simulations to model equipment failure uncertainty and maintenance scenarios, reducing unnecessary maintenance activities by ~20–30%.
+  
+Built scalable data preprocessing and feature engineering pipelines with MLflow-based experiment tracking, integrating machine learning model outputs into production decision-support systems for engineering and maintenance teams.
+  
+Designed and implemented Elasticsearch-based search and indexing solutions to enable efficient querying and retrieval of engineering documentation and operational datasets.`
   },
   {
     title: 'Junior Data Scientist',
@@ -45,9 +65,11 @@ Collaborated with cross-functional engineering and operations teams to deploy an
     end: 'Dec 2018',
     location: 'Bengaluru, India · On-site',
     description: `
-Built a search system using Elasticsearch and Python (Flask), improving document retrieval efficiency by ~20%.
-Developed automated ETL pipelines using Apache Airflow and contributed to Spark and Kafka streaming workflows for high-frequency telemetry data.
-Created RPA workflows to automate SAP-based data processing, reducing manual effort and improving throughput.`,
+Built enterprise search solutions using Elasticsearch and Python to optimize operational document and metadata retrieval (BM25 relevance scoring, inverted indexes, and NLP techniques)
+  
+Developed ETL pipelines using Apache Airflow, Apache Spark, and Kafka for high-throughput batch and stream data processing.
+  
+Automated SAP-based business processes to reduce manual effort and operational overhead.`,
   },
   {
     title: 'Data Science Intern',
