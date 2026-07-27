@@ -9,12 +9,12 @@ const Hero = () => {
         <span>Hey there, I am</span>
         <h1 className="text-2xl font-medium lg:text-4xl">Victor Johnson</h1>
         <p className="font-light lg:text-xl">
-          Data Scientist | AI Engineer | Production RAG & LLM Systems | Agentic AI | Data Science, AI, ML | Azure, Python | LangGraph, LangChain, Databricks
+          AI Engineer | Generative AI | LLMs | RAG | Agentic AI | AI Agents | LangChain | LangGraph | Azure | Python | Databricks
         </p>
         <p className="mt-5">
-          AI Engineer with 7+ years of experience and deep expertise in Generative AI, Retrieval-Augmented Generation (RAG), and multi-agent LLM systems. Proven track record designing scalable AI platforms for semantic search, document QA, and agentic workflows using Azure OpenAI, vector databases, LangChain, LlamaIndex, and LangGraph.  {' '}
+          AI Engineer with 8+ years of experience delivering production AI, Machine Learning, and Data Engineering solutions, specialising in Retrieval-Augmented Generation (RAG), Large Language Models (LLMs), Agentic AI workflows (LangGraph), semantic retrieval, vector search, and automated LLM evaluation.   {' '}
            <br className="hidden lg:block" />
-          Experienced in LLM evaluation, grounding, guardrails, and low-latency production deployments using Python, FastAPI, and cloud MLOps.  {' '}
+          Experienced designing and deploying enterprise GenAI applications using Azure OpenAI, Azure AI Search, LangChain, LangGraph, LlamaIndex, Databricks, Azure Synapse Analytics, Apache Spark, FastAPI, Python, and SQL with a strong focus on model grounding, enterprise guardrails, and cloud efficiency.  {' '}
           <br className="hidden lg:block" />
          Core: LLMs, RAG, Vector Search, Agentic Systems, LLM Evaluation, Python, Azure, Databricks, Spark, LangChain,LangGraph, MLOps.
         </p>
