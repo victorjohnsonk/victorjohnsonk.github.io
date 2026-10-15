@@ -9,7 +9,7 @@ const experiences = [
     company: 'SYMEUS LTD',
     industry: 'Finance',
     start: 'Jan 2022',
-    end: 'Present',
+    end: 'Sep 2026',
     location: 'England, United Kingdom · Hybrid',
     description: `
 Architected and deployed enterprise Retrieval-Augmented Generation (RAG) solutions using Natural Language Processing (NLP), Azure OpenAI, Azure AI Search, LangChain, LangGraph, LlamaIndex, FastAPI, Azure SQL, and Databricks, reducing manual research effort by ~50% while improving retrieval relevance by 25–35%.
