@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 const experiences = [
   {
     title: 'AI Engineer - CyberSec',
-    company: '',
     industry: 'Cyber Security',
     start: 'Sep 2026',
     end: 'Present',
@@ -16,7 +15,7 @@ Designing and implementing secure, scalable AI and Agentic AI solutions for cybe
   },
   {
     title: 'Data Scientist',
-    company: 'SYMEUS LTD',
+    company: 'Symeus',
     industry: 'Finance',
     start: 'Jan 2022',
     end: 'Sep 2026',
@@ -37,7 +36,7 @@ Developed machine learning models for financial forecasting, scenario planning, 
   },
   {
     title: 'Data Scientist (Part-time)',
-    company: 'SYMEUS LTD',
+    company: 'Symeus',
     industry: 'Finance',
     start: 'Feb 2021',
     end: 'Dec 2021',
