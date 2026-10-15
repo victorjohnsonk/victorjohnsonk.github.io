@@ -5,12 +5,22 @@ import { motion } from 'framer-motion';
 
 const experiences = [
   {
+    title: 'AI Engineer - CyberSec',
+    company: ',
+    industry: 'Cyber Security',
+    start: 'Sep 2026',
+    end: 'Present',
+    location: 'London, United Kingdom · Hybrid',
+    description: `
+Designing and implementing secure, scalable AI and Agentic AI solutions for cybersecurity, integrating intelligent threat detection, security analysis, automation, and AI-driven workflows to enhance security operations and risk management.`,
+  },
+  {
     title: 'Data Scientist',
     company: 'SYMEUS LTD',
     industry: 'Finance',
     start: 'Jan 2022',
     end: 'Sep 2026',
-    location: 'England, United Kingdom · Hybrid',
+    location: 'Norwich, United Kingdom · Hybrid',
     description: `
 Architected and deployed enterprise Retrieval-Augmented Generation (RAG) solutions using Natural Language Processing (NLP), Azure OpenAI, Azure AI Search, LangChain, LangGraph, LlamaIndex, FastAPI, Azure SQL, and Databricks, reducing manual research effort by ~50% while improving retrieval relevance by 25–35%.
   
@@ -31,7 +41,7 @@ Developed machine learning models for financial forecasting, scenario planning, 
     industry: 'Finance',
     start: 'Feb 2021',
     end: 'Dec 2021',
-    location: 'England, United Kingdom · Hybrid',
+    location: 'Norwich, United Kingdom · Hybrid',
     description: `
 Developed Databricks, Azure Synapse Analytics, and Apache Spark pipelines supporting production AI workloads and high-volume data processing.
 
