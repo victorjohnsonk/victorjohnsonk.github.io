@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const experiences = [
   {
     title: 'AI Engineer - CyberSec',
-    company: ',
+    company: '',
     industry: 'Cyber Security',
     start: 'Sep 2026',
     end: 'Present',
