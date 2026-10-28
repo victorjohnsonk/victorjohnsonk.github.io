@@ -50,17 +50,20 @@ Atlas responds correctly. It remembers the expired credential, the failed API re
 
 A typical chat application maintains a sequence of messages:
 
-    System message
-        |
-    User message
-        |
-    Assistant response
-        |
-    User message
-        |
-    Tool response
-        |
-    Assistant response
+```text
+System message
+    |
+User message
+    |
+Assistant response
+    |
+User message
+    |
+Tool response
+    |
+Assistant response
+```
+
 
 When another message arrives, the application may send some or all of the previous conversation back to the model. The model can then refer to earlier messages because they are included in its current input. This is commonly called **conversation memory**, **chat history** or **session memory**.
 
@@ -143,15 +146,18 @@ Working memory contains the information an agent actively needs to reason, make 
 
 ### What Working Memory Looks Like
 
-    {
-      "task_id": "sync-investigation-1042",
-      "objective": "Investigate failed Graph API sync",
-      "current_step": "Inspect authentication response",
-      "last_error": "401 Unauthorized",
-      "retry_count": 2,
-      "hypothesis": "Access token may have expired",
-      "status": "investigating"
-    }
+```json
+{
+  "task_id": "sync-investigation-1042",
+  "objective": "Investigate failed Graph API sync",
+  "current_step": "Inspect authentication response",
+  "last_error": "401 Unauthorized",
+  "retry_count": 2,
+  "hypothesis": "Access token may have expired",
+  "status": "investigating"
+}
+```
+
 
 This state could be maintained in application memory, a cache, a database record or an orchestration framework. The key characteristic is its purpose: it supports the task currently in progress.
 
@@ -198,23 +204,26 @@ This is **episodic memory**. Episodic memory represents past events, interaction
 
 ### An Example Episodic Memory
 
-    {
-      "episode_id": "incident-2026-001",
-      "timestamp": "2026-10-12T09:30:00Z",
-      "task_type": "graph_api_troubleshooting",
-      "context": {
-        "service": "data_sync",
-        "error_code": 401
-      },
-      "actions": [
-        "Checked API permissions",
-        "Validated token expiry",
-        "Renewed authentication credentials",
-        "Retried synchronisation"
-      ],
-      "outcome": "success",
-      "lesson": "Expired credentials caused the authentication failure"
-    }
+```json
+{
+  "episode_id": "incident-2026-001",
+  "timestamp": "2026-10-12T09:30:00Z",
+  "task_type": "graph_api_troubleshooting",
+  "context": {
+    "service": "data_sync",
+    "error_code": 401
+  },
+  "actions": [
+    "Checked API permissions",
+    "Validated token expiry",
+    "Renewed authentication credentials",
+    "Retried synchronisation"
+  ],
+  "outcome": "success",
+  "lesson": "Expired credentials caused the authentication failure"
+}
+```
+
 
 Notice that this memory describes an event. It does not necessarily establish a universal rule. An expired credential caused one incident. That does not mean every future `401 Unauthorized` response has the same cause. A well-designed agent should use the episode as evidence for a hypothesis, not as proof.
 
@@ -296,15 +305,18 @@ That statement is semantic knowledge. The original episodes remain useful becaus
 
 ### An Example Semantic Memory
 
-    {
-      "memory_id": "knowledge-graph-auth-001",
-      "type": "semantic",
-      "subject": "Microsoft Graph authentication",
-      "fact": "Expired or invalid access tokens can cause authentication failures",
-      "source": "validated operational documentation",
-      "confidence": 0.98,
-      "last_verified": "2026-10-20T00:00:00Z"
-    }
+```json
+{
+  "memory_id": "knowledge-graph-auth-001",
+  "type": "semantic",
+  "subject": "Microsoft Graph authentication",
+  "fact": "Expired or invalid access tokens can cause authentication failures",
+  "source": "validated operational documentation",
+  "confidence": 0.98,
+  "last_verified": "2026-10-20T00:00:00Z"
+}
+```
+
 
 The confidence value here is an application-defined assessment, not an objective probability of truth. A production system should record provenance and verification status rather than relying only on a numerical confidence score.
 
@@ -366,19 +378,22 @@ Procedural memory represents knowledge about how to perform tasks. In an AI agen
 
 ### An Example Procedure
 
-    procedure: recover_failed_sync
-    steps:
-      - verify_current_job_status
-      - inspect_last_error
-      - check_authentication
-      - validate_checkpoint
-      - retry_failed_window
-      - verify_persisted_records
-      - update_checkpoint_after_success
-    safety_rules:
-      - never_advance_checkpoint_before_success
-      - prevent_overlapping_executions
-      - require_approval_for_destructive_operations
+```yaml
+procedure: recover_failed_sync
+steps:
+  - verify_current_job_status
+  - inspect_last_error
+  - check_authentication
+  - validate_checkpoint
+  - retry_failed_window
+  - verify_persisted_records
+  - update_checkpoint_after_success
+safety_rules:
+  - never_advance_checkpoint_before_success
+  - prevent_overlapping_executions
+  - require_approval_for_destructive_operations
+```
+
 
 This is different from an episode. An episode describes what happened during a particular execution. A procedure describes what should be done when performing a class of tasks.
 
@@ -434,12 +449,15 @@ Prospective memory concerns remembering to perform an action in the future. Imag
 
 Atlas needs to retain an intention associated with a future condition or time. A possible representation is:
 
-    {
-      "type": "prospective",
-      "action": "check_sync_status",
-      "scheduled_for": "2026-10-28T09:00:00Z",
-      "status": "pending"
-    }
+```json
+{
+  "type": "prospective",
+  "action": "check_sync_status",
+  "scheduled_for": "2026-10-28T09:00:00Z",
+  "status": "pending"
+}
+```
+
 
 In production, this should usually be implemented through a reliable scheduler, queue or workflow engine. A memory record alone does not guarantee that an action will execute.
 
@@ -459,13 +477,16 @@ Use reflections when an agent benefits from identifying patterns across experien
 
 An agent may also need to remember relationships. For example:
 
-    Sync Service
-        |
-        +-- uses --> Microsoft Graph
-        |
-        +-- stores checkpoints in --> Azure SQL
-        |
-        +-- authenticates through --> Entra ID
+```text
+Sync Service
+    |
+    +-- uses --> Microsoft Graph
+    |
+    +-- stores checkpoints in --> Azure SQL
+    |
+    +-- authenticates through --> Entra ID
+```
+
 
 This is often described as entity memory or graph-based memory. It can help an agent reason about systems, dependencies and organisational structures. However, the relationships themselves are semantic knowledge. A graph database is simply one possible implementation.
 
@@ -516,26 +537,32 @@ These are storage, indexing and retrieval decisions. They should follow from the
 
 Suppose every incident has structured metadata.
 
-    CREATE TABLE agent_episodes (
-        episode_id VARCHAR(100) PRIMARY KEY,
-        tenant_id VARCHAR(100) NOT NULL,
-        occurred_at TIMESTAMP NOT NULL,
-        service_name VARCHAR(100),
-        error_code VARCHAR(50),
-        summary TEXT,
-        actions_json TEXT,
-        outcome VARCHAR(50)
-    );
+```sql
+CREATE TABLE agent_episodes (
+    episode_id VARCHAR(100) PRIMARY KEY,
+    tenant_id VARCHAR(100) NOT NULL,
+    occurred_at TIMESTAMP NOT NULL,
+    service_name VARCHAR(100),
+    error_code VARCHAR(50),
+    summary TEXT,
+    actions_json TEXT,
+    outcome VARCHAR(50)
+);
+```
+
 
 When Atlas encounters a `401` error, the application can retrieve relevant incidents:
 
-    SELECT *
-    FROM agent_episodes
-    WHERE tenant_id = :tenant_id
-      AND service_name = 'graph_sync'
-      AND error_code = '401'
-    ORDER BY occurred_at DESC
-    LIMIT 10;
+```sql
+SELECT *
+FROM agent_episodes
+WHERE tenant_id = :tenant_id
+  AND service_name = 'graph_sync'
+  AND error_code = '401'
+ORDER BY occurred_at DESC
+LIMIT 10;
+```
+
 
 This is episodic memory implemented with relational storage. It works well when episodes have predictable fields and the agent frequently searches using known identifiers. There is no requirement for embeddings.
 
@@ -553,12 +580,15 @@ The wording differs, but the situations are related. A vector-based implementati
 
 Conceptually:
 
-    query = "Graph synchronisation authentication failure"
-    query_embedding = embedding_model.embed(query)
-    results = vector_store.search(
-        vector=query_embedding,
-        top_k=5
-    )
+```python
+query = "Graph synchronisation authentication failure"
+query_embedding = embedding_model.embed(query)
+results = vector_store.search(
+    vector=query_embedding,
+    top_k=5
+)
+```
+
 
 This is still episodic memory. The difference is the retrieval mechanism. Vector search is useful when relevant experiences cannot be reliably identified using exact keywords or structured fields alone.
 
@@ -568,35 +598,41 @@ However, semantic similarity does not guarantee operational relevance. Two incid
 
 A third engineer combines relational filtering with vector similarity. The retrieval process becomes:
 
-    Incoming incident
-           |
-           v
-    Identify tenant, service and time range
-           |
-           v
-    Apply structured prefilters
-           |
-           v
-    Perform semantic similarity search
-           |
-           v
-    Rerank relevant episodes
-           |
-           v
-    Return evidence to the agent
+```text
+Incoming incident
+       |
+       v
+Identify tenant, service and time range
+       |
+       v
+Apply structured prefilters
+       |
+       v
+Perform semantic similarity search
+       |
+       v
+Rerank relevant episodes
+       |
+       v
+Return evidence to the agent
+```
+
 
 For example:
 
 
-    results = episode_store.search(
-        query="Authentication failure during Graph sync",
-        filters={
-            "tenant_id": current_tenant,
-            "service_name": "graph_sync",
-            "outcome": "success"
-        },
-        top_k=5
-    )
+```python
+results = episode_store.search(
+    query="Authentication failure during Graph sync",
+    filters={
+        "tenant_id": current_tenant,
+        "service_name": "graph_sync",
+        "outcome": "success"
+    },
+    top_k=5
+)
+```
+
 
 
 This is conceptual pseudocode; the exact API depends on the storage provider. The filtering ensures that the search operates within the correct scope. The vector similarity helps identify related incidents. A reranking step can then consider recency, outcome quality, version compatibility and other relevance signals.
@@ -638,17 +674,20 @@ A common architectural mistake is assuming that every memory type needs its own 
 
 Does it need four separate storage systems? Not necessarily. A PostgreSQL database, for example, could contain:
 
-    PostgreSQL
-        |
-        +-- task_state
-        |
-        +-- episodes
-        |
-        +-- knowledge_facts
-        |
-        +-- procedures
-        |
-        +-- memory_metadata
+```text
+PostgreSQL
+    |
+    +-- task_state
+    |
+    +-- episodes
+    |
+    +-- knowledge_facts
+    |
+    +-- procedures
+    |
+    +-- memory_metadata
+```
+
 
 If semantic similarity is required, an extension such as pgvector can support embedding-based retrieval alongside relational queries. This can simplify deployment, transactions, access control and operational maintenance.
 
@@ -703,25 +742,28 @@ Should Atlas save all six as permanent facts? No. They represent different types
 
 A useful memory pipeline might look like:
 
-    Conversation or Tool Output
-               |
-               v
-    Identify Candidate Memories
-               |
-               v
-    Classify Memory Type
-               |
-               v
-    Check Source and Trust
-               |
-               v
-    Check Privacy and Retention Policy
-               |
-               v
-    Detect Duplicates and Contradictions
-               |
-               v
-    Store or Update Memory
+```text
+Conversation or Tool Output
+           |
+           v
+Identify Candidate Memories
+           |
+           v
+Classify Memory Type
+           |
+           v
+Check Source and Trust
+           |
+           v
+Check Privacy and Retention Policy
+           |
+           v
+Detect Duplicates and Contradictions
+           |
+           v
+Store or Update Memory
+```
+
 
 The first statement is likely an episode detail. The second is a candidate semantic fact. The third is temporary working context. The fourth is an observed outcome that may belong to an episode. The fifth may be an approved procedural rule, depending on its source. The sixth is a security requirement that should be enforced through application controls, not merely remembered as an optional suggestion.
 
@@ -750,19 +792,22 @@ Every important memory should ideally answer:
 - Is it still valid?
 - Who is allowed to access it?
 
-    For example:
+For example:
 
-        {
-          "memory_id": "fact-102",
-          "type": "semantic",
-          "content": "The sync service stores checkpoints in Azure SQL",
-          "source_type": "configuration",
-          "source_reference": "sync-service-config",
-          "observed_at": "2026-10-20T12:00:00Z",
-          "validity": "current",
-          "scope": "organisation",
-          "verification_status": "verified"
-    }
+```json
+{
+      "memory_id": "fact-102",
+      "type": "semantic",
+      "content": "The sync service stores checkpoints in Azure SQL",
+      "source_type": "configuration",
+      "source_reference": "sync-service-config",
+      "observed_at": "2026-10-20T12:00:00Z",
+      "validity": "current",
+      "scope": "organisation",
+      "verification_status": "verified"
+}
+```
+
 
 This makes the memory easier to trust, update and audit.
 
@@ -778,28 +823,31 @@ Should Atlas search every memory category? Probably not. The question asks for c
 
 This illustrates another important principle: **An agent should retrieve memory because it is relevant to a task, not merely because memory exists.**
 
-    ### A Retrieval Decision Process
+### A Retrieval Decision Process
 
-        User Request
-             |
-             v
-        What information is required?
-             |
-             +-- Current operational state
-             |       |
-             |       +-- Query live system
-             |
-             +-- Previous experience
-             |       |
-             |       +-- Retrieve episodic memory
-             |
-             +-- Reusable facts
-             |       |
-             |       +-- Retrieve semantic memory
-             |
-             +-- Instructions or workflow
-                     |
-                     +-- Retrieve procedural memory
+```text
+User Request
+         |
+         v
+    What information is required?
+         |
+         +-- Current operational state
+         |       |
+         |       +-- Query live system
+         |
+         +-- Previous experience
+         |       |
+         |       +-- Retrieve episodic memory
+         |
+         +-- Reusable facts
+         |       |
+         |       +-- Retrieve semantic memory
+         |
+         +-- Instructions or workflow
+                 |
+                 +-- Retrieve procedural memory
+```
+
 
 A single task may require several branches. For example, investigating a failed synchronisation might require:
 
@@ -843,12 +891,15 @@ Memory consolidation is the process of organising, summarising, merging or trans
 
 ### From Many Episodes to a General Lesson
 
-    Imagine Atlas has recorded:
+```text
+Imagine Atlas has recorded:
 
-        Episode 101: Expired token caused a 401 error.
-        Episode 128: Invalid token caused a 401 error.
-        Episode 164: Incorrect permissions caused a 403 error.
-    Episode 189: Renewing a token resolved an authentication failure.
+    Episode 101: Expired token caused a 401 error.
+    Episode 128: Invalid token caused a 401 error.
+    Episode 164: Incorrect permissions caused a 403 error.
+Episode 189: Renewing a token resolved an authentication failure.
+```
+
 
 A consolidation process might derive:
 
@@ -894,25 +945,31 @@ Six months later, the organisation upgrades to a new API version. If Atlas conti
 
 ### Memory Expiration
 
-    Some memories should have explicit expiration times. For example:
+Some memories should have explicit expiration times. For example:
 
-        {
-          "memory_id": "temporary-maintenance-window",
-          "content": "Maintenance is scheduled for tonight",
-          "expires_at": "2026-10-28T06:00:00Z"
-    }
+```json
+{
+      "memory_id": "temporary-maintenance-window",
+      "content": "Maintenance is scheduled for tonight",
+      "expires_at": "2026-10-28T06:00:00Z"
+}
+```
+
 
 Once the maintenance window passes, the memory should no longer be treated as current.
 
 ### Memory Invalidation
 
-    Other memories become invalid because new information replaces them. For example:
+Other memories become invalid because new information replaces them. For example:
 
-        Old fact:
-        Checkpoint database = SQL Server A
+```text
+Old fact:
+    Checkpoint database = SQL Server A
 
-        New verified fact:
-        Checkpoint database = SQL Server B
+    New verified fact:
+    Checkpoint database = SQL Server B
+```
+
 
 A good system should update or invalidate the old fact rather than retrieve both as equally authoritative.
 
@@ -957,46 +1014,49 @@ A practical architecture might look like this:
 
 ###### Image 3: A production agent can combine working state, historical experiences, reusable knowledge and controlled procedures.
 
-    User / Timer / Event
-              |
-              v
-    Agent Orchestrator
-              |
-       +------+------+
-       |             |
-       v             v
-    Working       Memory
-    State         Retrieval
-       |             |
-       |      +------+------+
-       |      |      |      |
-       |      v      v      v
-       |    Episodic Semantic Procedural
-       |    Memory   Memory   Memory
-       |      |      |      |
-       |      +------+------+
-       |             |
-       +------+------+
-              |
-              v
-    Reasoning / Planning
-              |
-              v
-    Tool Execution
-              |
-              v
-    Result Validation
-              |
-       +------+------+
-       |             |
-       v             v
-    Return Result  Memory Writer
-                     |
-                     v
-                Validate / Classify
-                     |
-                     v
-                Store / Update
+```text
+User / Timer / Event
+          |
+          v
+Agent Orchestrator
+          |
+   +------+------+
+   |             |
+   v             v
+Working       Memory
+State         Retrieval
+   |             |
+   |      +------+------+
+   |      |      |      |
+   |      v      v      v
+   |    Episodic Semantic Procedural
+   |    Memory   Memory   Memory
+   |      |      |      |
+   |      +------+------+
+   |             |
+   +------+------+
+          |
+          v
+Reasoning / Planning
+          |
+          v
+Tool Execution
+          |
+          v
+Result Validation
+          |
+   +------+------+
+   |             |
+   v             v
+Return Result  Memory Writer
+                 |
+                 v
+            Validate / Classify
+                 |
+                 v
+            Store / Update
+```
+
 
 This architecture separates three concerns.
 
@@ -1012,22 +1072,25 @@ These concerns can evolve independently.
 
 A clean design might expose memory through an interface rather than tying business logic directly to a particular database.
 
-    from typing import Protocol, Any
+```python
+from typing import Protocol, Any
 
-    class MemoryStore(Protocol):
-        def save(self, memory: dict[str, Any]) -> str:
-            ...
+class MemoryStore(Protocol):
+    def save(self, memory: dict[str, Any]) -> str:
+        ...
 
-        def retrieve(
-            self,
-            query: str,
-            filters: dict[str, Any],
-            limit: int = 5
-        ) -> list[dict[str, Any]]:
-            ...
+    def retrieve(
+        self,
+        query: str,
+        filters: dict[str, Any],
+        limit: int = 5
+    ) -> list[dict[str, Any]]:
+        ...
 
-        def delete(self, memory_id: str) -> None:
-            ...
+    def delete(self, memory_id: str) -> None:
+        ...
+```
+
 
 A relational implementation could satisfy this interface. So could a vector-based implementation.
 
@@ -1035,26 +1098,29 @@ However, not every memory type needs the same interface. Working-state storage m
 
 ### A Possible Project Structure
 
-    src/
-    └── agent/
-        ├── orchestrator.py
-        ├── memory/
-        │   ├── working_memory.py
-        │   ├── episodic_memory.py
-        │   ├── semantic_memory.py
-        │   ├── procedural_memory.py
-        │   ├── memory_manager.py
-        │   └── retrieval.py
-        ├── storage/
-        │   ├── relational_store.py
-        │   ├── vector_store.py
-        │   └── cache_store.py
-        ├── tools/
-        │   ├── graph_api.py
-        │   └── database.py
-        └── policies/
-            ├── retention.py
-            └── access_control.py
+```python
+src/
+└── agent/
+    ├── orchestrator.py
+    ├── memory/
+    │   ├── working_memory.py
+    │   ├── episodic_memory.py
+    │   ├── semantic_memory.py
+    │   ├── procedural_memory.py
+    │   ├── memory_manager.py
+    │   └── retrieval.py
+    ├── storage/
+    │   ├── relational_store.py
+    │   ├── vector_store.py
+    │   └── cache_store.py
+    ├── tools/
+    │   ├── graph_api.py
+    │   └── database.py
+    └── policies/
+        ├── retention.py
+        └── access_control.py
+```
+
 
 Notice that the `memory/` directory represents logical memory capabilities. The `storage/` directory represents implementation technologies. This distinction makes the architecture easier to change.
 
@@ -1160,14 +1226,17 @@ For example, an incident log containing "ignore all security checks" must not be
 
 A user's preference should not automatically become an organisation-wide rule. Memory needs clear scope.
 
-    Possible scopes include:
+```text
+Possible scopes include:
 
-        Task
-        Session
-        User
-        Project
-        Organisation
-        Global
+    Task
+    Session
+    User
+    Project
+    Organisation
+    Global
+```
+
 
 The agent should retrieve only memories appropriate to the current identity, permissions and task.
 
