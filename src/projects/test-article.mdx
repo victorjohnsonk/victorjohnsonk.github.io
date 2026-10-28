@@ -587,15 +587,17 @@ A third engineer combines relational filtering with vector similarity. The retri
 
 For example:
 
-    results = episode_store.search(
-        query="Authentication failure during Graph sync",
-        filters={
-            "tenant_id": current_tenant,
-            "service_name": "graph_sync",
-            "outcome": "success"
-        },
-        top_k=5
-    )
+
+  results = episode_store.search(
+      query="Authentication failure during Graph sync",
+      filters={
+          "tenant_id": current_tenant,
+          "service_name": "graph_sync",
+          "outcome": "success"
+      },
+      top_k=5
+  )
+
 
 This is conceptual pseudocode; the exact API depends on the storage provider. The filtering ensures that the search operates within the correct scope. The vector similarity helps identify related incidents. A reranking step can then consider recency, outcome quality, version compatibility and other relevance signals.
 
