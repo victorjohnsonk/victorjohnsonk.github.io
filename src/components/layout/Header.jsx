@@ -50,7 +50,7 @@ const Header = () => {
 
           {/* Blog (STATIC – must use <a>) */}
           <a
-            href="https://opendata.blog/"
+            href="/blog"
             className="inline-flex items-center gap-1.5 hover:text-lime-300"
           >
             <FaPenNib className="h-4 w-4" />
@@ -83,6 +83,13 @@ const Header = () => {
           >
             <FaEnvelope className="h-4 w-4" />
             Email
+          </a>
+           <a
+            href="https://www.opendata.blog"
+            className="inline-flex items-center gap-1.5 hover:text-lime-300"
+          >
+            <FaPenNib className="h-4 w-4" />
+            OpenData.Blog
           </a>
         </nav>
 
