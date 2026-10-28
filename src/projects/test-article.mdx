@@ -588,15 +588,15 @@ A third engineer combines relational filtering with vector similarity. The retri
 For example:
 
 
-  results = episode_store.search(
-      query="Authentication failure during Graph sync",
-      filters={
-          "tenant_id": current_tenant,
-          "service_name": "graph_sync",
-          "outcome": "success"
-      },
-      top_k=5
-  )
+    results = episode_store.search(
+        query="Authentication failure during Graph sync",
+        filters={
+            "tenant_id": current_tenant,
+            "service_name": "graph_sync",
+            "outcome": "success"
+        },
+        top_k=5
+    )
 
 
 This is conceptual pseudocode; the exact API depends on the storage provider. The filtering ensures that the search operates within the correct scope. The vector similarity helps identify related incidents. A reranking step can then consider recency, outcome quality, version compatibility and other relevance signals.
@@ -750,18 +750,18 @@ Every important memory should ideally answer:
 - Is it still valid?
 - Who is allowed to access it?
 
-For example:
+    For example:
 
-    {
-      "memory_id": "fact-102",
-      "type": "semantic",
-      "content": "The sync service stores checkpoints in Azure SQL",
-      "source_type": "configuration",
-      "source_reference": "sync-service-config",
-      "observed_at": "2026-10-20T12:00:00Z",
-      "validity": "current",
-      "scope": "organisation",
-      "verification_status": "verified"
+        {
+          "memory_id": "fact-102",
+          "type": "semantic",
+          "content": "The sync service stores checkpoints in Azure SQL",
+          "source_type": "configuration",
+          "source_reference": "sync-service-config",
+          "observed_at": "2026-10-20T12:00:00Z",
+          "validity": "current",
+          "scope": "organisation",
+          "verification_status": "verified"
     }
 
 This makes the memory easier to trust, update and audit.
@@ -778,28 +778,28 @@ Should Atlas search every memory category? Probably not. The question asks for c
 
 This illustrates another important principle: **An agent should retrieve memory because it is relevant to a task, not merely because memory exists.**
 
-### A Retrieval Decision Process
+    ### A Retrieval Decision Process
 
-    User Request
-         |
-         v
-    What information is required?
-         |
-         +-- Current operational state
-         |       |
-         |       +-- Query live system
-         |
-         +-- Previous experience
-         |       |
-         |       +-- Retrieve episodic memory
-         |
-         +-- Reusable facts
-         |       |
-         |       +-- Retrieve semantic memory
-         |
-         +-- Instructions or workflow
-                 |
-                 +-- Retrieve procedural memory
+        User Request
+             |
+             v
+        What information is required?
+             |
+             +-- Current operational state
+             |       |
+             |       +-- Query live system
+             |
+             +-- Previous experience
+             |       |
+             |       +-- Retrieve episodic memory
+             |
+             +-- Reusable facts
+             |       |
+             |       +-- Retrieve semantic memory
+             |
+             +-- Instructions or workflow
+                     |
+                     +-- Retrieve procedural memory
 
 A single task may require several branches. For example, investigating a failed synchronisation might require:
 
@@ -843,11 +843,11 @@ Memory consolidation is the process of organising, summarising, merging or trans
 
 ### From Many Episodes to a General Lesson
 
-Imagine Atlas has recorded:
+    Imagine Atlas has recorded:
 
-    Episode 101: Expired token caused a 401 error.
-    Episode 128: Invalid token caused a 401 error.
-    Episode 164: Incorrect permissions caused a 403 error.
+        Episode 101: Expired token caused a 401 error.
+        Episode 128: Invalid token caused a 401 error.
+        Episode 164: Incorrect permissions caused a 403 error.
     Episode 189: Renewing a token resolved an authentication failure.
 
 A consolidation process might derive:
@@ -894,25 +894,25 @@ Six months later, the organisation upgrades to a new API version. If Atlas conti
 
 ### Memory Expiration
 
-Some memories should have explicit expiration times. For example:
+    Some memories should have explicit expiration times. For example:
 
-    {
-      "memory_id": "temporary-maintenance-window",
-      "content": "Maintenance is scheduled for tonight",
-      "expires_at": "2026-10-28T06:00:00Z"
+        {
+          "memory_id": "temporary-maintenance-window",
+          "content": "Maintenance is scheduled for tonight",
+          "expires_at": "2026-10-28T06:00:00Z"
     }
 
 Once the maintenance window passes, the memory should no longer be treated as current.
 
 ### Memory Invalidation
 
-Other memories become invalid because new information replaces them. For example:
+    Other memories become invalid because new information replaces them. For example:
 
-    Old fact:
-    Checkpoint database = SQL Server A
+        Old fact:
+        Checkpoint database = SQL Server A
 
-    New verified fact:
-    Checkpoint database = SQL Server B
+        New verified fact:
+        Checkpoint database = SQL Server B
 
 A good system should update or invalidate the old fact rather than retrieve both as equally authoritative.
 
@@ -1160,14 +1160,14 @@ For example, an incident log containing "ignore all security checks" must not be
 
 A user's preference should not automatically become an organisation-wide rule. Memory needs clear scope.
 
-Possible scopes include:
+    Possible scopes include:
 
-    Task
-    Session
-    User
-    Project
-    Organisation
-    Global
+        Task
+        Session
+        User
+        Project
+        Organisation
+        Global
 
 The agent should retrieve only memories appropriate to the current identity, permissions and task.
 
