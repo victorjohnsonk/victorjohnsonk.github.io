@@ -32,7 +32,7 @@ Architected and deployed enterprise RAG and Agentic AI solutions using Azure Ope
     end: 'Dec 2021',
     location: 'Norwich, United Kingdom · Hybrid',
     description: `
-Developed scalable data pipelines using Databricks, Azure Synapse Analytics and Apache Spark, optimised SQL workloads and built Power BI and Streamlit dashboards for business intelligence.`,
+Developed scalable data pipelines using Azure Synapse Analytics and Apache Spark, optimised SQL workloads and built Power BI and Streamlit dashboards for business intelligence.`,
   },
   {
     title: 'Data Scientist',
