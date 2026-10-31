@@ -132,7 +132,7 @@ const Header = () => {
 
             {/* Blog – static */}
             <a
-              href="https://opendata.blog/"
+              href="/blog"
               className="inline-flex items-center gap-2 hover:text-lime-300"
               onClick={() => setMenuOpen(false)}
             >
@@ -169,6 +169,14 @@ const Header = () => {
             >
               <FaEnvelope className="h-5 w-5" />
               Email
+            </a>
+            <a
+              href="https://opendata.blog"
+              className="inline-flex items-center gap-2 hover:text-lime-300"
+              onClick={() => setMenuOpen(false)}
+            >
+              <FaPenNib className="h-5 w-5" />
+              OpenData.Blog
             </a>
           </nav>
         </div>
